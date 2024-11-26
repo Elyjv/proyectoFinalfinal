@@ -26,12 +26,15 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log("Conectado a MongoDB"))
     .catch((error) => console.error("Error de conexión:", error));
 
+// Ruta base para confirmar que el servidor está funcionando
 app.get('/', (req, res) => {
     res.send('Servidor de reserva de turnos funcionando');
 });
 
+// Puerto para Render o predeterminado a 5000
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
 
+// Cambiado para que escuche en 0.0.0.0 para Render
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
+});
