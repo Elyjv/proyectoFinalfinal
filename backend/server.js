@@ -33,6 +33,8 @@ app.get('/', (req, res) => {
 
 // Puerto para Render o predeterminado a 
 const PORT = process.env.PORT || 10000;  // O el puerto que Render asigna dinámicamente
-app.listen(PORT, () => {
+
+// Escuchar en todas las interfaces (0.0.0.0) para permitir que Render se conecte correctamente
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
